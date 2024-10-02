@@ -1,0 +1,156 @@
+/* Reset e estilo global */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #e3e3e3;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  height: 100%;
+  background-color: #212121;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/******************************
+ *        Layout Geral         *
+ ******************************/
+
+#todo-container {
+  margin: 2rem auto;
+  max-width: 600px;
+  padding: 0.9rem;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.no-select {
+  user-select: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/******************************
+ *         Covers              *
+ ******************************/
+
+#add-task-cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #212121c3;
+}
+
+#add-task-form {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  margin: 10rem 1rem 0;
+}
+
+#add-task-input {
+  border: none;
+  outline: none;
+  width: 300px;
+  padding: 5px;
+  font-size: 16px;
+  color: #212121;
+  border-radius: 5px;
+}
+
+#add-cover,
+#search-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 36px;
+}
+
+/******************************
+ *           Nav               *
+ ******************************/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+nav form {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+nav #search-input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 16px;
+  color: #212121;
+  border-radius: 5px;
+}
+
+/******************************
+ *       Tasks (UL e LI)       *
+ ******************************/
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2a78c039;
+  border: 2px solid #2b79c2;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 20px 0;
+}
+
+.task .task-btn {
+  display: flex;
+  gap: 5px;
+}
+
+.no-task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 1.15rem;
+  margin: 20px 0;
+  background-color: #c0842a39;
+  border: 2px solid #c2742b;
+}
+
+.completed {
+  background-color: #3cc02a39;
+  border: 2px solid #3dc22b;
+}
+
+/******************************
+ *         Media Query         *
+ ******************************/
+
+@media screen and (max-width: 425px) {
+  #search-input {
+    width: 120px;
+  }
+  #add-task-container {
+    text-align: center;
+  }
+}
