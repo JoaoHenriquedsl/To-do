@@ -30,6 +30,7 @@ function generateNewId() {
 function addTask(title) {
   const newTask = new Task(title, generateNewId());
   tasksList.unshift(newTask);
+  saveTaskLocalStorage();
   verifyList();
 }
 
@@ -37,6 +38,7 @@ function removeTask(taskId) {
   for (let i = 0; i < tasksList.length; i++) {
     if (tasksList[i].id == taskId) {
       tasksList.splice(i, 1);
+      saveTaskLocalStorage();
       renderTasks();
     }
   }
@@ -49,6 +51,7 @@ function completeTask(taskId) {
     if (task.id == taskId) {
       task.isCompleted = !task.isCompleted;
       renderTasks();
+      saveTaskLocalStorage();
     }
   }
 }
@@ -149,3 +152,19 @@ searchForm.addEventListener("keyup", () => {
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
 });
+
+window.addEventListener('load', ()=>{
+  getTaskLocalStorage()
+  verifyList()
+})
+
+// LocalStorage
+
+function saveTaskLocalStorage(){
+  localStorage.setItem('todo', JSON.stringify(tasksList))
+}
+
+function getTaskLocalStorage(){
+  tasksList = JSON.parse(localStorage.getItem('todo'))
+  renderTasks()
+}
