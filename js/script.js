@@ -61,10 +61,8 @@ function renderTasks() {
 
   if (searchInputValue) {
     const newTasksList = tasksList.filter((task) => task.title.toLocaleLowerCase().includes(searchInputValue));
-    console.log(newTasksList);
     handleTasks(newTasksList);
   } else {
-    console.log(tasksList);
     handleTasks();
   }
 }
@@ -165,6 +163,6 @@ function saveTaskLocalStorage(){
 }
 
 function getTaskLocalStorage(){
-  tasksList = JSON.parse(localStorage.getItem('todo'))
+  tasksList = JSON.parse(localStorage.getItem('todo')) || []
   renderTasks()
 }
